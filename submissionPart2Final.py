@@ -1,8 +1,3 @@
-### Input arguments - file location of key
-key_path = r"C:\Users\Pano\Desktop\5_ALL_ELSE_0\1-APPLICATIONS\1-CV-WORK\0-JOBS-DETAILS\2-TECHNICAL-EXERCISE\1-2-Virgin\Scripts\KEY\virgin-media-pano-test-98d82bca49bf.json"
-fileLocationSaveOutput=r'C:\Users\Pano\Desktop\5_ALL_ELSE_0\1-APPLICATIONS\1-CV-WORK\0-JOBS-DETAILS\2-TECHNICAL-EXERCISE\1-2-Virgin\Scripts\output\results'
-
-
 from google.cloud import bigquery
 import apache_beam as beam
 from google.oauth2 import service_account
