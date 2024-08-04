@@ -11,7 +11,10 @@ This project demonstrates a data processing pipeline using Apache Beam and Googl
 
 ## Documentation
 
-For more detailed information, see the `docs/` directory.
+For more detailed information, please refer to the documentation linked below: 
+* Pipeline architecture [Pipeline Architecture Documentation](./docs/pipeline_architecture.md)
+* ETL processing: [ETL Process Documentation](./docs/etl_process.md)
+
 
 ## Setup
 
