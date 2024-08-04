@@ -4,7 +4,7 @@ variable "project_id" {
 
 variable "region" {
   description = "The GCP region"
-  default     = "us-central1"
+  default     = "europe-west2"  # This is the London region
 }
 
 variable "dataset_id" {
