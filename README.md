@@ -9,6 +9,10 @@ This project demonstrates a data processing pipeline using Apache Beam and Googl
 - Data aggregation and processing using Apache Beam
 - Results writing back to BigQuery
 
+## Documentation
+
+For more detailed information, see the `docs/` directory.
+
 ## Setup
 
 1. Clone the repository:
@@ -54,9 +58,17 @@ To contribute to this project:
 3. Run tests using `python -m unittest discover tests`
 4. Submit a pull request
 
-## Documentation
+## Continuous Integration
 
-For more detailed information, see the `docs/` directory.
+This project uses GitHub Actions for continuous integration. On each push and pull request:
+
+- The test suite is run
+- Linting is performed using pylint
+
+To run these checks locally:
+
+1. Run tests: `python -m unittest discover tests`
+2. Run linting: `pylint src tests`
 
 ## License
 
