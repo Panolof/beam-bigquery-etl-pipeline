@@ -7,4 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+ENV LOG_LEVEL=INFO
+
 CMD ["python", "src/beam_pipeline.py"]
