@@ -32,6 +32,7 @@ def run_pipeline(config):
                                                                                config['data_processing']['min_transaction_year']))
              | 'RemoveNone' >> beam.Filter(lambda x: x is not None)
              | 'AggregateTransactions' >> beam.CombineGlobally(aggregate_transactions)
+             | 'FlattenResults' >> beam.FlatMap(lambda x: x)
              | 'WriteToBigQuery' >> beam.io.WriteToBigQuery(
                  f"{config['bigquery']['project_id']}:{config['bigquery']['dataset_id']}.{config['bigquery']['output_table_id']}",
                  schema='SCHEMA_AUTODETECT',
