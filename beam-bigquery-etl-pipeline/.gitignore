@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# Environments
+.env
+!.env.example
+.venv
+env/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+
+# Other
+*.log
+.DS_Store
+.cache/
+
+# Apache Beam
+apache-beam-temp/
+
+# BigQuery
+*.bq
+
+# Google Cloud
+*.json
+!example-key.json
+
+# Output files
+output/
+results/
