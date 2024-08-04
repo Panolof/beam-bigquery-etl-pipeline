@@ -1,0 +1,14 @@
+bigquery:
+  project_id: 
+  dataset_id: 
+  input_table_id: 
+  output_table_id: processed_transactions
+
+beam_pipeline:
+  runner: DirectRunner
+  temp_location: gs://-temp/
+  staging_location: gs://-staging/
+
+data_processing:
+  min_transaction_amount: 20
+  min_transaction_year: 2010
