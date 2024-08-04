@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+from collections import defaultdict
 
 logger = logging.getLogger(__name__)
 
@@ -20,5 +21,14 @@ def filter_transactions(transaction, min_amount, min_year):
         return None
 
 def aggregate_transactions(transactions):
-    # Implement aggregation logic here
-    pass
+    logger.info("Aggregating transactions")
+    aggregated = defaultdict(float)
+    
+    for transaction in transactions:
+        date = transaction['date']
+        amount = float(transaction['amount'])
+        aggregated[date] += amount
+    
+    result = [{'date': date, 'total_amount': total} for date, total in aggregated.items()]
+    logger.info(f"Aggregated {len(transactions)} transactions into {len(result)} daily totals")
+    return result
