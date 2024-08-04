@@ -5,10 +5,12 @@ import yaml
 import os
 import logging
 
+# Set up logging
 logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO"))
 logger = logging.getLogger(__name__)
 
 def load_config():
+    """Load configuration from YAML file."""
     try:
         with open('config/pipeline_config.yaml', 'r') as file:
             return yaml.safe_load(file)
@@ -17,12 +19,15 @@ def load_config():
         raise
 
 def run_pipeline(config):
+    """Main pipeline execution function."""
     logger.info("Starting pipeline")
     
     try:
+        # Set up pipeline options
         options = PipelineOptions.from_dictionary(config['beam_pipeline'])
         
         with beam.Pipeline(options=options) as p:
+            # Define pipeline steps
             (p 
              | 'ReadFromBigQuery' >> beam.io.ReadFromBigQuery(
                  query=f"SELECT * FROM `{config['bigquery']['project_id']}.{config['bigquery']['dataset_id']}.{config['bigquery']['input_table_id']}`",
