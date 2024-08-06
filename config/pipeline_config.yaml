@@ -1,14 +1,19 @@
 bigquery:
-  project_id: 
-  dataset_id: 
-  input_table_id: 
-  output_table_id: processed_transactions
+  project_id: your_project_id
+  dataset_id: your_dataset_id
+  input_table_id: transactions_input
+  output_table_id: transactions_output
 
 beam_pipeline:
   runner: DirectRunner
-  temp_location: gs://-temp/
-  staging_location: gs://-staging/
+  temp_location: gs://your-bucket/temp/
+  staging_location: gs://your-bucket/staging/
 
 data_processing:
   min_transaction_amount: 20
   min_transaction_year: 2010
+
+scd_config:
+  type2_fields:
+    - customer_status
+  effective_date_field: date

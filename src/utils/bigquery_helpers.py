@@ -1,9 +1,15 @@
 from google.cloud import bigquery
 from google.oauth2 import service_account
 import os
+import json
 import logging
 
 logger = logging.getLogger(__name__)
+
+def load_schema(schema_file):
+    with open(schema_file, 'r') as f:
+        schema = json.load(f)
+    return schema['fields']
 
 def get_client():
     """
