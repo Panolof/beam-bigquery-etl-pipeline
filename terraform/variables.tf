@@ -10,3 +10,11 @@ variable "region" {
 variable "dataset_id" {
   description = "The BigQuery dataset ID"
 }
+
+variable "input_table_id" {
+  description = "The BigQuery input table ID"
+}
+
+variable "output_table_id" {
+  description = "The BigQuery output table ID"
+}
