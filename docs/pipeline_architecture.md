@@ -30,3 +30,7 @@ The pipeline includes error handling and logging at various stages to capture an
 ## Scalability
 
 The use of Apache Beam allows for scalable processing, with the ability to run on various backends including local, Google Cloud Dataflow, and Apache Flink.
+
+## Continuous Integration
+
+The project uses GitHub Actions for continuous integration. The CI process runs tests and performs linting on each pull request, ensuring code quality and functionality before merging changes.
