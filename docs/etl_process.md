@@ -19,6 +19,7 @@ Data transformation is performed using Apache Beam's parallel processing capabil
 1. **Filtering**: Transactions are filtered based on:
    - Minimum transaction amount
    - Minimum transaction year
+  This is now implemented using a generator function `generate_filtered_transactions`, which yields filtered transactions one at a time.
 2. **Aggregation**: Transactions are aggregated by date, summing the total amount for each date.
 
 ## Load
