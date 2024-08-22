@@ -58,6 +58,7 @@ def run_pipeline(config):
                 | 'FilterTransactions' >> beam.FlatMap(lambda transactions: generate_filtered_transactions(transactions, 
                                                                                    config['data_processing']['min_transaction_amount'],
                                                                                    config['data_processing']['min_transaction_year']))
+                | 'RemoveNone' >> beam.Filter(lambda x: x is not None)
                 | 'KeyByTransactionId' >> beam.Map(lambda row: (row['transaction_id'], row)))
 
             # Combine current state and new data
