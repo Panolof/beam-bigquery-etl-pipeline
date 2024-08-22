@@ -19,6 +19,8 @@ We use:
 
 Please ensure your code adheres to these standards before submitting a pull request.
 
+When implementing data processing functions, consider using generator functions with `yield` for memory-efficient processing of large datasets.
+
 ## Commit Messages
 
 Use clear and meaningful commit messages. Each commit message should describe what changed and why.
@@ -42,7 +44,7 @@ This approach maintains consistency between our tests and the actual pipeline be
 
 ## Documentation
 
-Update documentation as necessary, including inline comments, README.md, and files in the `docs/` directory.
+Update documentation as necessary, including inline comments, README.md, and files in the `docs/` directory. When adding new features like generator functions, make sure to document their purpose and usage.
 
 ## Continuous Integration
 
