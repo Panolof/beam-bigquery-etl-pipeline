@@ -32,3 +32,10 @@ def aggregate_transactions(transactions):
     result = [{'date': date, 'total_amount': total} for date, total in aggregated.items()]
     logger.info(f"Aggregated {len(transactions)} transactions into {len(result)} daily totals")
     return result
+
+def generate_filtered_transactions(transactions, min_amount, min_year):
+    logger.info(f"Generating filtered transactions: min_amount={min_amount}, min_year={min_year}")
+    for transaction in transactions:
+        filtered = filter_transactions(transaction, min_amount, min_year)
+        if filtered:
+            yield filtered

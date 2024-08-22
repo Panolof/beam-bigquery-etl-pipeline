@@ -1,6 +1,6 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-from utils.data_transformations import filter_transactions, aggregate_transactions
+from utils.data_transformations import generate_filtered_transactions, aggregate_transactions
 from utils.bigquery_helpers import load_schema
 import yaml
 import os
@@ -55,7 +55,7 @@ def run_pipeline(config):
                 | 'ReadFromBigQuery' >> beam.io.ReadFromBigQuery(
                     query=f"SELECT * FROM `{config['bigquery']['project_id']}.{config['bigquery']['dataset_id']}.{config['bigquery']['input_table_id']}`",
                     use_standard_sql=True)
-                | 'FilterTransactions' >> beam.Map(lambda row: filter_transactions(row, 
+                | 'FilterTransactions' >> beam.FlatMap(lambda transactions: generate_filtered_transactions(transactions, 
                                                                                    config['data_processing']['min_transaction_amount'],
                                                                                    config['data_processing']['min_transaction_year']))
                 | 'RemoveNone' >> beam.Filter(lambda x: x is not None)
